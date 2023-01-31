@@ -1,13 +1,38 @@
 <!DOCTYPE html>
 <html lang="PT">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Buzz Feed</title>
+  <link rel="stylesheet" href="./css/style.css">
 </head>
+
 <body>
-  
+  <header class="header-container">
+    <a href="index.html" class="header-container__logo">BuzzQuizz</a>
+  </header>
+  <main class="app">
+    <section class="tela1">
+      <div class="user-quiz">
+        <ul class="user-quiz__list-semquizz">
+          <li class="user-quiz__none">Você não criou nenhum quizz ainda :(</li>
+          <li class="user-quiz__none"><button>Criar Quizz</button></li>
+        </ul>
+      </div>
+
+      <div class="all-quiz">
+        <div>
+          <h1 class="all-quiz__cabecalho">Todos os Quizzes</h1>
+        </div>
+        <div class="all-quiz__list">
+        </div>
+
+    </section>
+  </main>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+  <script src="./js/app.js"></script>
 </body>
+
 </html>

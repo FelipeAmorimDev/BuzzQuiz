@@ -1,0 +1,138 @@
+/* Geral */
+body {
+  margin: 0px;
+  background: #FAFAFA;
+}
+
+ul,
+li {
+  margin: 0px;
+  padding: 0px;
+}
+
+ul {
+  list-style: none;
+}
+
+h1,h2,h3{
+  margin: 0px;
+}
+
+/* Header */
+.header-container {
+  background: #EC362D;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding: 13px;
+  text-align: center;
+}
+
+.header-container__logo {
+  font-family: 'Roboto', sans-serif;
+  font-size: 2.31rem;
+  line-height: 1.16;
+  font-weight: 700;
+  color: white;
+  text-decoration: none;
+}
+
+/* Tela 1 */
+
+.tela1 {
+  max-width: 1051px;
+  margin: 0 auto;
+}
+
+.user-quiz__list-semquizz {
+  margin: 77px 0px 144px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px dashed #D5D5D5;
+  border-radius: 5px;
+}
+
+li.user-quiz__none:first-child {
+  font-family: 'Roboto', sans-serif;
+  color: #B9B9B9;
+  font-weight: 400;
+  font-size: 1.25;
+  line-height: 1.15;
+  max-width: 22ch;
+  text-align: center;
+  padding: 33px 0px;
+}
+
+li.user-quiz__none:last-child button {
+  border: 1px dashed #EC362D;
+  border-radius: 50px;
+  font-family: "Roboto", sans-serif;
+  font-weight: 400;
+  font-size: 1.31rem;
+  line-height: 1.19;
+  color: #EC362D;
+  background: #FAFAFA;
+  padding: 8px 20px;
+  margin-bottom: 33px;
+  cursor: pointer;
+}
+
+/* Tela 01 Todos */
+
+.all-quiz__cabecalho {
+  font-family: "Roboto", sans-serif;
+  font-weight: 700;
+  font-size: 1.25rem;
+  line-height: 1.15;
+  color: #000;
+  margin-bottom: 12px;
+}
+
+.all-quiz__list{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px 15px;
+  
+}
+
+.quizz {
+  position: relative;
+  border-radius: 6px;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+ 
+ }
+
+.quizz img{
+  width: 340px;
+  height: 181px;
+}
+
+.quizz .quizz-overlayer{
+  position: absolute;
+  top: 0px;
+  width: 340px;
+  height: 181px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(0, 0, 0, 0.5) 64.58%, #000000 100%);
+  transition: all .3s;
+  
+}
+
+.quizz:hover .quizz-overlayer{
+ opacity: .8;
+    
+}
+
+.quizz h2{
+  position: absolute;
+  bottom: 10px;
+  font-family: 'Roboto';
+  font-weight: 400;
+  font-size: 19px;
+  line-height: 22px;
+  color: #fff;
+  margin: 0px 18px;
+  word-break: break-all;
+  text-align: center;
+}
