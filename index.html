@@ -11,11 +11,18 @@
 
 <body>
   <header class="header-container">
-    <a href="index.html" class="header-container__logo">BuzzQuizz</a>
+    <a href="index.html">
+      <h1 class="header-container__logo">BuzzQuizz</h1>
+    </a>
   </header>
+
   <main class="app">
     <section class="tela1">
       <div class="user-quiz">
+        <div class="user-quizz__cabecalho">
+          <h2></h2>
+          <!-- Botao -->
+        </div>
         <ul class="user-quiz__list-semquizz">
           <li class="user-quiz__none">Você não criou nenhum quizz ainda :(</li>
           <li class="user-quiz__none"><button>Criar Quizz</button></li>
@@ -23,13 +30,19 @@
       </div>
 
       <div class="all-quiz">
-        <div>
-          <h1 class="all-quiz__cabecalho">Todos os Quizzes</h1>
-        </div>
-        <div class="all-quiz__list">
-        </div>
-
+        <h2 class="all-quiz__cabecalho">Todos os Quizzes</h2>
+        <div class="all-quiz__list"></div>
+      </div>
     </section>
+
+    <section class="tela2 hidden">
+      <header class="header__tela2"></header>
+
+      <div class="perguntas__container">
+        
+      </div>
+    </section>
+    
   </main>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
   <script src="./js/app.js"></script>
