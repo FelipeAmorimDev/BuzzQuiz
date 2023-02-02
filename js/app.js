@@ -3,11 +3,13 @@
 let qntRespostaCorreta = 0;
 let qntPerguntasRespondida = 0;
 let qntPerguntas = 0;
-let  levels = null;
+let levels = null;
 
 const quizList = document.querySelector('.all-quiz__list')
 const tela01 = document.querySelector('.tela1')
 const tela02 = document.querySelector('.tela2')
+const headerTela2 = document.querySelector('.header__tela2')
+const resultadoContainer = document.querySelector('.resultado-container')
 
 const perguntasContainer = document.querySelector('.perguntas__container')
 
@@ -35,16 +37,22 @@ const acessarQuizz = id => {
   const request = axios(`https://mock-api.driven.com.br/api/v6/buzzquizz/quizzes/${id}`)
   request.then(response => {
     console.log(response.data)
-    generatePage2Html(response.data)
+    generatePage2Html(response.data, id)
   })
 
   tela01.classList.add('hidden')
   tela02.classList.remove('hidden')
+  scrollTo(0, 0)
+  qntRespostaCorreta = 0;
+  qntPerguntasRespondida = 0;
+  perguntasContainer.innerHTML = '';
+  resultadoContainer.innerHTML = '';
 }
 
-const generatePage2Html = data => {
+const generatePage2Html = (data, id) => {
   let respostasArray = [];
-  const headerTela2 = document.querySelector('.header__tela2')
+
+  headerTela2.dataset.quizzid = id
   const headerTemplate = `<img src="${data.image}" alt="">
   <div class="tela2__overlayer"></div>
   <h2>${data.title}</h2>`
@@ -53,6 +61,7 @@ const generatePage2Html = data => {
   const questions = data.questions
   levels = data.levels
   qntPerguntas = data.questions.length
+
   questions.forEach((question, index) => {
     questionTemplate = `<div class="pergunta pergunta-${index}">
     <div class="pergunta__title" style="background-color:${question.color}">
@@ -114,11 +123,13 @@ const respostaSelecionada = (resposta, estaCorreta) => {
 
   // Resultado quizz
   if (qntPerguntasRespondida === qntPerguntas) {
-    const resultadoContainer = document.querySelector('.resultado-container')
+
     const porcentagemAcerto = Math.ceil(qntRespostaCorreta / qntPerguntasRespondida.toFixed(2) * 100)
-    for(let i=0;i < levels.length;i++){
+    for (let i = 0; i < levels.length; i++) {
       const minValue = levels[i].minValue
-      if(porcentagemAcerto >= minValue){
+
+      if (porcentagemAcerto >= minValue) {
+        const idQuizzAtual = headerTela2.dataset.quizzid
         const resultadoTemplate = ` <div class="resultado-container__box">
         <div class="resultado-container__cabecalho">
           <h3>${porcentagemAcerto}% de acerto: ${levels[i].title}</h3>
@@ -127,16 +138,24 @@ const respostaSelecionada = (resposta, estaCorreta) => {
           <img src="${levels[i].image}" alt="">
           <p>${levels[i].text}</p>
         </div>
-      </div>`
-      resultadoContainer.innerHTML = resultadoTemplate
-
-      return
+      </div>
+      <div class='botao__box'>
+      <button onclick="acessarQuizz(${idQuizzAtual})">Reiniciar Quizz</button>
+      <button onclick="retonarPaginaInicial()">Voltar pra home</button>
+      </div>
+      `
+        resultadoContainer.innerHTML = resultadoTemplate
+        setTimeout(() => {
+          resultadoContainer.scrollIntoView({ behavior: "smooth" })
+        }, 2000)
+        return
       }
     }
-   
-    
   }
+}
 
+const retonarPaginaInicial = () => {
+  document.location.reload();
 }
 
 buscarQuizzesServidor()
