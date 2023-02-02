@@ -2,6 +2,7 @@
 body {
   margin: 0px;
   background: #FAFAFA;
+  word-break: break-word;
 }
 
 ul,
@@ -147,7 +148,7 @@ li.user-quiz__none:last-child button {
   color: #fff;
   margin: 0px 18px;
   text-align: center;
-  word-break: break-word;
+  
 }
 
 /* Tela 2 */
@@ -222,7 +223,7 @@ li.user-quiz__none:last-child button {
 }
 
 .pergunta__respostas div img {
-  width: 100%;
+  width: 320px;
   height: 175px;
 }
 
